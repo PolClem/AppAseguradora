@@ -2,8 +2,10 @@
     //Llamo a la conexión.
     include 'conexion.php';
 
-    $fila= mysql_fetch_array ($datos);
+    // $fila= mysql_fetch_array ($datos);
     $idCliente = $_GET ['id_cliente'];
+    // var_dump($id_cliente);
+    // return;
 
     $nombre = $_POST ['nombre'];
     $apellido = $_POST ['apellido'];
@@ -28,8 +30,8 @@
     $polizaNumero = $_POST ['polizaNumero'];
     $tipo_seguro = $_POST ['tipo_seguro'];
 
-    $sql = "UPDATE cliente SET nombre = '$nombre', apellido = '$apellido', dni = '$dni', domicilio = '$domicilio', telefono = '$telefono', provinvia = '$provincia', ciudad = '$ciudad' WHERE id_cliente = '$idCliente'";
-    $sql2 = "UPDATE vehiculo SET marca = '$marca', ani = '$anio', patente = '$patente', numeroChasis = '$numeroChasis', tipo_vehiculo = '$tipo_vehiculo', modelo = '$modelo', numeroMotor = '$numeroMotor', destino = ' $destino', zonaRiesgo = '$zonaRiesgo'  WHERE  patente = '$patente'";
+    $sql = "UPDATE clientes SET nombre = '$nombre', apellido = '$apellido', dni = '$dni', domicilio = '$domicilio', telefono = '$telefono', provinvia = '$provincia', ciudad = '$ciudad' WHERE id_cliente = '$idCliente'";
+    $sql2 = "UPDATE vehiculos SET marca = '$marca', ani = '$anio', patente = '$patente', numeroChasis = '$numeroChasis', tipo_vehiculo = '$tipo_vehiculo', modelo = '$modelo', numeroMotor = '$numeroMotor', destino = ' $destino', zonaRiesgo = '$zonaRiesgo'  WHERE  patente = '$patente'";
     $sql3 = "UPDATE seguros SET polizaNumero = '$polizaNumero', tipo_seguro = '$tipo_seguro' WHERE polizaNumero = '$polizaNumero'";
 
     $query = mysqli_query ($conexion, $sql);

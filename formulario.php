@@ -17,7 +17,7 @@
   <button onclick = "location.href='inicio.php'" type="submit" id="cerrarFormulario" class="btn btn-primary">
      X
     </button>
-    <form id="altas" action="insertar.php" method="POST" autocomplete = "off">
+    <form id="altas" action="insertar.php" method="POST" autocomplete = "on">
       <div class="form-row">
         <div class="form-group container col-md-3">
           <h2>Datos del Cliente</h2>

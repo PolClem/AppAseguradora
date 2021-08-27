@@ -133,7 +133,7 @@
               type="text"
               class="form-control"
               id="inputTipoDeVehiculo"
-              name = "tipo"
+              name = "tipo_vehiculo"
               placeholder="Tipo de Vehiculo"
             />
             <label for="inputModelo">Modelo</label>
@@ -177,7 +177,7 @@
           <label for="inputNroPoliza">Poliza Número</label>
           <input type="text" class="form-control" id="inputNroPoliza" name = "polizaNumero" />
           <label for="inputTipoPoliza">Tipo de Poliza</label>
-          <select id="inputTipoPoliza" class="form-control" name = "tipo">
+          <select id="inputTipoPoliza" class="form-control" name = "tipo_seguro">
             <option selected>Básica</option>
             <option>Media</option>
             <option>Total</option>
