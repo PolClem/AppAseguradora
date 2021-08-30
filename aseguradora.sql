@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-08-2021 a las 18:52:57
+-- Tiempo de generación: 30-08-2021 a las 18:00:43
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.9
 
@@ -36,14 +36,14 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `provincia` varchar(40) NOT NULL,
   `ciudad` varchar(40) NOT NULL,
   PRIMARY KEY (`id_cliente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `clientes`
 --
 
 INSERT INTO `clientes` (`id_cliente`, `nombre`, `apellido`, `dni`, `domicilio`, `telefono`, `provincia`, `ciudad`) VALUES
-(2, 'María', 'Caseres', 28795468, 'San Martín 596', 3794259483, 'Corrientes', 'Corrientes');
+(3, 'Paula', 'Clemente', 31043693, 'San Martín 596', 3794682196, 'Corrientes', 'Corrientes');
 
 -- --------------------------------------------------------
 
@@ -55,14 +55,14 @@ CREATE TABLE IF NOT EXISTS `seguros` (
   `polizaNumero` int(11) NOT NULL AUTO_INCREMENT,
   `tipo_seguro` varchar(10) NOT NULL,
   PRIMARY KEY (`polizaNumero`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `seguros`
 --
 
 INSERT INTO `seguros` (`polizaNumero`, `tipo_seguro`) VALUES
-(2, 'Alta');
+(3, 'Alto');
 
 -- --------------------------------------------------------
 
@@ -93,6 +93,7 @@ INSERT INTO `usuarios` (`id_usuarios`, `userName`, `password`, `mail`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `vehiculos` (
+  `id_vehiculo` int(11) NOT NULL AUTO_INCREMENT,
   `patente` varchar(7) NOT NULL,
   `marca` varchar(20) NOT NULL,
   `anio` int(4) NOT NULL,
@@ -102,16 +103,15 @@ CREATE TABLE IF NOT EXISTS `vehiculos` (
   `numeroMotor` varchar(15) NOT NULL,
   `destino` varchar(10) NOT NULL,
   `zonaRiesgo` varchar(2) NOT NULL,
-  `cliente_id` int(11) NOT NULL,
-  PRIMARY KEY (`patente`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  PRIMARY KEY (`id_vehiculo`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `vehiculos`
 --
 
-INSERT INTO `vehiculos` (`patente`, `marca`, `anio`, `numeroChasis`, `tipo_vehiculo`, `modelo`, `numeroMotor`, `destino`, `zonaRiesgo`, `cliente_id`) VALUES
-('EMU410', 'Volswagen', 2004, '9BWCB05X54T130847', 'Sedan', 'Gol Power 1.6 3 ptas', 'UNF285184', 'Particular', 'No', 2);
+INSERT INTO `vehiculos` (`id_vehiculo`, `patente`, `marca`, `anio`, `numeroChasis`, `tipo_vehiculo`, `modelo`, `numeroMotor`, `destino`, `zonaRiesgo`) VALUES
+(3, 'KPL726', 'Chevrolet', 2011, 'AAJ145465SD545', 'Sedan', 'Cruze 4 puertas 1.8', 'ASD12564', 'Particulae', 'No');
 
 --
 -- Restricciones para tablas volcadas
@@ -122,6 +122,12 @@ INSERT INTO `vehiculos` (`patente`, `marca`, `anio`, `numeroChasis`, `tipo_vehic
 --
 ALTER TABLE `seguros`
   ADD CONSTRAINT `seguros_ibfk_1` FOREIGN KEY (`polizaNumero`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `vehiculos`
+--
+ALTER TABLE `vehiculos`
+  ADD CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`id_vehiculo`) REFERENCES `clientes` (`id_cliente`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
