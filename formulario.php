@@ -79,7 +79,7 @@
           />
         </div>
       </div>
-      <div class="form-row">
+      <!-- <div class="form-row">
         <div class="form-group container col-md-6">
           <h2>Datos del vehiculo</h2>
           <label for="inputMarca">Marca</label>
@@ -155,9 +155,9 @@
               placeholder="Si - No"
             />
           </div>
-        </div>
+        </div> -->
       
-      <div class="form-row">
+      <!-- <div class="form-row">
         <div class="form-group container col-md-3">
           <h2>Tipo de Seguro</h2>
           <label for="inputNroPoliza">Poliza Número</label>
@@ -168,11 +168,12 @@
             <option>Media</option>
             <option>Total</option>
           </select>
-          <button type="submit" id="cargaFormulario" class="btn btn-primary">
-            Enviar
-          </button>
+          
         </div>
-      </div>
+      </div> -->
+      <button type="submit" id="cargaFormulario" class="btn btn-primary">
+        Enviar
+      </button>
     </form>
     
     <script

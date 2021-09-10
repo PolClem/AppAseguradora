@@ -1,15 +1,18 @@
 <?php
 
     //Llamo a la conexión.
-    include 'conexion.php';
+    require 'conexion.php';
 
-    $idCliente = $_GET ['id_cliente'];
+    //var_dump($_GET);    
+    $idCliente = $_GET['id'];
 
     $sql = "DELETE FROM clientes WHERE id_cliente = '$idCliente'";
-    $query = mysqli_query ($conexion, $sql);
+    $query = mysqli_query($conexion, $sql);
 
     if ($query){
-        Header ("Location: consulta.php");
+        header("location: consulta.php");
+    }else{
+        echo 'Error'.mysqli_errno($conexion);
     }
 
 

@@ -2,12 +2,13 @@
 //Llamo a la conexión.
 include 'conexion.php';
 $clientes = "SELECT * FROM clientes";
-$vehiculos = "SELECT * FROM vehiculos";
-$seguros = "SELECT * FROM seguros";
+// $vehiculos = "SELECT * FROM vehiculos";
+// $seguros = "SELECT * FROM seguros";
+$resultado = mysqli_query ($conexion, $clientes);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,8 +33,7 @@ $seguros = "SELECT * FROM seguros";
                 <table class = "table">
                     <thead class = "table-success table-striped">
                         <tr>
-                            <th></th>
-                            <th></th>
+    
                             <th>Número Cliente</th>
                             <th>Nombre</th>
                             <th>Apellido</th>
@@ -42,7 +42,7 @@ $seguros = "SELECT * FROM seguros";
                             <th>Teléfono</th>
                             <th>Provincia</th>
                             <th>Ciudad</th>
-                            <th>Marca</th>
+                            <!-- <th>Marca</th>
                             <th>Año</th>
                             <th>Patente</th>
                             <th>Número de Chasis</th>
@@ -52,21 +52,24 @@ $seguros = "SELECT * FROM seguros";
                             <th>Destino</th>
                             <th>Zona de Riesgo</th>
                             <th>Número de Póliza</th>
-                            <th>Tipo</th>
+                            <th>Tipo</th> -->
+                            <th></th>
+                            <th></th>
                             
                         </tr>
                     </thead>
                     <tbody id = cuerpoTabla>
                         <?php 
-                            $resultado = mysqli_query ($conexion, $clientes);
-                            while ($row = mysqli_fetch_assoc ($resultado)){
+                            
+                            // $id = ['id_cliente'];
+                            // var_dump ($id);
+                            // echo ($id);
+                            while ($row = mysqli_fetch_array ($resultado)){
                                 
                         ?>
-                            <tr>
-                                <th><a href="actualizar.php?id = <?php echo $row ['id_cliente']; ?>" class = "btn btn-info" id = "botonEditar">Editar</a></th>
-                                <th><a href="delete.php?id = <?php echo $row ['id_cliente']; ?>" class = "btn btn-danger" id = "botonEliminar">Eliminar</a></th>
+                            <tr>                             
 
-                                <th><?php echo $row ["id_cliente"]; ?></th>
+                                <th><?php echo $row ["id_cliente"];?></th>
                                 <th><?php echo $row ['nombre']; ?></th>
                                 <th><?php echo $row ['apellido']; ?></th>
                                 <th><?php echo $row ['dni']; ?></th>
@@ -74,38 +77,15 @@ $seguros = "SELECT * FROM seguros";
                                 <th><?php echo $row ['telefono']; ?></th>
                                 <th><?php echo $row ['provincia']; ?></th>
                                 <th><?php echo $row ['ciudad']; ?></th>
-                                <?php
-                                    }
-                                ?>
-                                <?php 
-                                    $resultado2 = mysqli_query ($conexion,$vehiculos);
-                                    while ($row = mysqli_fetch_array ($resultado2)){
-                                ?>
-                                <th><?php echo $row ['marca']; ?></th>
-                                <th><?php echo $row ['anio']; ?></th>
-                                <th><?php echo $row ['patente']; ?></th>
-                                <th><?php echo $row ['numeroChasis']; ?></th>
-                                <th><?php echo $row ['tipo_vehiculo']; ?></th>
-                                <th><?php echo $row ['modelo']; ?></th>
-                                <th><?php echo $row ['numeroMotor']; ?></th>
-                                <th><?php echo $row ['destino']; ?></th>
-                                <th><?php echo $row ['zonaRiesgo']; ?></th>
-                                <?php
-                                    }
-                                ?>
-                                <?php 
-                                    $resultado3 = mysqli_query ($conexion, $seguros);
-                                    while ($row = mysqli_fetch_assoc ($resultado3)){
-                                ?>        
-                                <th><?php echo $row ['polizaNumero']; ?></th>
-                                <th><?php echo $row ['tipo_seguro']; ?></th>
-
+                               
+                               
+                                
+                                <th><a href="actualizar.php?id=<?php echo $row['id_cliente'];?>" class = "btn btn-info" id = "botonEditar">Editar</a></th>
+                                <th><a href="delete.php?id=<?php echo $row['id_cliente'];?>" class = "btn btn-danger" id = "botonEliminar">Eliminar</a></th>
                                 
                             </tr>
                                 <?php
-                                    }mysqli_free_result ($resultado);
-                                    mysqli_free_result ($resultado2);
-                                    mysqli_free_result ($resultado3);
+                                    }
                                 ?>
                     </tbody>
                 </table>

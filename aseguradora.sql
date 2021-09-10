@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-08-2021 a las 18:00:43
+-- Tiempo de generación: 11-09-2021 a las 00:07:17
 -- Versión del servidor: 5.6.16
 -- Versión de PHP: 5.5.9
 
@@ -36,14 +36,15 @@ CREATE TABLE IF NOT EXISTS `clientes` (
   `provincia` varchar(40) NOT NULL,
   `ciudad` varchar(40) NOT NULL,
   PRIMARY KEY (`id_cliente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Volcado de datos para la tabla `clientes`
 --
 
 INSERT INTO `clientes` (`id_cliente`, `nombre`, `apellido`, `dni`, `domicilio`, `telefono`, `provincia`, `ciudad`) VALUES
-(3, 'Paula', 'Clemente', 31043693, 'San Martín 596', 3794682196, 'Corrientes', 'Corrientes');
+(4, 'Pepe', 'Landa', 23458762, '9 de Julio 1233', 3794587423, 'Corrientes', 'Corrientes'),
+(7, 'Cata', 'Lejos', 46578961, 'Itati 559', 3794254896, 'Corrientes', 'Corrientes');
 
 -- --------------------------------------------------------
 
@@ -112,22 +113,6 @@ CREATE TABLE IF NOT EXISTS `vehiculos` (
 
 INSERT INTO `vehiculos` (`id_vehiculo`, `patente`, `marca`, `anio`, `numeroChasis`, `tipo_vehiculo`, `modelo`, `numeroMotor`, `destino`, `zonaRiesgo`) VALUES
 (3, 'KPL726', 'Chevrolet', 2011, 'AAJ145465SD545', 'Sedan', 'Cruze 4 puertas 1.8', 'ASD12564', 'Particulae', 'No');
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `seguros`
---
-ALTER TABLE `seguros`
-  ADD CONSTRAINT `seguros_ibfk_1` FOREIGN KEY (`polizaNumero`) REFERENCES `clientes` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `vehiculos`
---
-ALTER TABLE `vehiculos`
-  ADD CONSTRAINT `vehiculos_ibfk_1` FOREIGN KEY (`id_vehiculo`) REFERENCES `clientes` (`id_cliente`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

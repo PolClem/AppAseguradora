@@ -1,11 +1,16 @@
-<?php>
+<?php
     //Llamo a la conexión.
     include 'conexion.php';
 
-    $id = $_GET ['id'];
+    if (isset ($_GET ['id'])) {
+      $id = $_GET['id'];
+    }
+    
+    echo($id);
 
-    $sql = "SELECT * FROM cliente WHERE id_cliente = '$id'";
+    $sql = "SELECT * FROM clientes WHERE id_cliente = '$id'";
     $query = mysqli_query ($conexion, $sql);
+    // echo($id_cliente);
 
     $row = mysqli_fetch_array ($query);
 
@@ -42,6 +47,7 @@
             id="inputNombre"
             name = "nombre"
             placeholder="Nombre"
+            value = "<?php echo $row['nombre'];?>"
           />
           <label for="inputApellido">Apellido</label>
           <input
@@ -50,6 +56,7 @@
             id="inputApellido"
             name = "apellido"
             placeholder="Apellido"
+            value = "<?php echo $row['apellido'];?>"
           />
           <label for="inputDni">DNI</label>
           <input
@@ -58,6 +65,7 @@
             id="inputDni"
             name = "dni"
             placeholder="DNI"
+            value = "<?php echo $row['dni'];?>"
           />
           <label for="inputDomicilio">Domicilio</label>
           <input
@@ -66,6 +74,7 @@
             id="inputDomicilio"
             name = "domicilio"
             placeholder="Domicilio"
+            value = "<?php echo $row['domicilio'];?>"
           />
           <label for="inputTeléfono">Teléfono</label>
           <input
@@ -82,6 +91,7 @@
             id="inputProvincia"
             name = "provincia"
             placeholder="Provincia"
+            value = "<?php echo $row['provincia'];?>"
           />
           <label for="inputCiudad">Ciudad</label>
           <input
@@ -90,10 +100,11 @@
             id="inputCiudad"
             name = "ciudad"
             placeholder="Ciudad"
+            value = "<?php echo $row['ciudad'];?>"
           />
         </div>
       </div>
-      <div class="form-row">
+      <!-- <div class="form-row">
         <div class="form-group container col-md-6">
           <h2>Datos del vehiculo</h2>
           <label for="inputMarca">Marca</label>
@@ -169,9 +180,9 @@
               placeholder="Si - No"
             />
           </div>
-        </div>
+        </div> -->
       
-      <div class="form-row">
+      <!-- <div class="form-row">
         <div class="form-group container col-md-3">
           <h2>Tipo de Seguro</h2>
           <label for="inputNroPoliza">Poliza Número</label>
@@ -182,11 +193,12 @@
             <option>Media</option>
             <option>Total</option>
           </select>
-          <button type="submit" id="cargaFormulario" class="btn btn-primary">
+          
+        </div>
+      </div> -->
+      <button type="submit" id="cargaFormulario" class="btn btn-primary">
             Enviar
           </button>
-        </div>
-      </div>
     </form>
     
     <script

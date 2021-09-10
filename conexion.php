@@ -7,5 +7,5 @@
     if (!$conexion){
         die ("No hay conexión".mysqli_connect_error());
     }else{
-        echo ("Conectado");
+        // echo ("Conectado");
     }
