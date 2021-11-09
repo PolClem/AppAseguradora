@@ -25,8 +25,9 @@ if ($query){
     $array = mysqli_fetch_array ($query);
     if ($array ['filas'] == 1){
         $_SESSION ['userName'] = $usuario;
-        header("location:inicio.php");
+        
     }
+    header("location:inicio.php");
 }
 
 //Libero la variable

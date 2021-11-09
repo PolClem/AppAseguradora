@@ -60,10 +60,7 @@ $resultado = mysqli_query ($conexion, $clientes);
                     </thead>
                     <tbody id = cuerpoTabla>
                         <?php 
-                            
-                            // $id = ['id_cliente'];
-                            // var_dump ($id);
-                            // echo ($id);
+                           
                             while ($row = mysqli_fetch_array ($resultado)){
                                 
                         ?>
@@ -85,7 +82,7 @@ $resultado = mysqli_query ($conexion, $clientes);
                                 
                             </tr>
                                 <?php
-                                    }
+                                    } mysqli_free_result ($resultado);
                                 ?>
                     </tbody>
                 </table>

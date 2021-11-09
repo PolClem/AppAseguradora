@@ -1,12 +1,10 @@
 <?php
     //Llamo a la conexión.
-    include 'conexion.php';
+    require 'conexion.php';
 
-    if (isset ($_GET ['id'])) {
-      $id = $_GET['id'];
-    }
+    $id = $_GET['id'];
     
-    echo($id);
+    //echo($id);
 
     $sql = "SELECT * FROM clientes WHERE id_cliente = '$id'";
     $query = mysqli_query ($conexion, $sql);
@@ -40,6 +38,15 @@
       <div class="form-row">
         <div class="form-group container col-md-3">
           <h2>Datos del Cliente</h2>
+          <label for="inputId">Id</label>
+          <input
+            type="number"
+            class="form-control"
+            id="inputId"
+            name = "id"
+            placeholder="ID"
+            value = "<?php echo $row['id_cliente'];?>"
+          />
           <label for="inputNombre">Nombre</label>
           <input
             type="text"
@@ -76,13 +83,14 @@
             placeholder="Domicilio"
             value = "<?php echo $row['domicilio'];?>"
           />
-          <label for="inputTeléfono">Teléfono</label>
+          <label for="inputTelefono">Teléfono</label>
           <input
             type="number"
             class="form-control"
-            id="inputTeléfono"
+            id="inputTelefono"
             name = "telefono"
-            placeholder="Teléfono"
+            placeholder="Telefono"
+            value = "<?php echo $row['telefono'];?>"
           />
           <label for="inputProvincia">Provincia</label>
           <input
@@ -196,7 +204,7 @@
           
         </div>
       </div> -->
-      <button type="submit" id="cargaFormulario" class="btn btn-primary">
+      <button type="submit" id="modificar" class="btn btn-primary">
             Enviar
           </button>
     </form>

@@ -53,13 +53,14 @@
             name = "domicilio"
             placeholder="Domicilio"
           />
-          <label for="inputTeléfono">Teléfono</label>
+          <label for="inputTelefono">Teléfono</label>
           <input
             type="number"
             class="form-control"
-            id="inputTeléfono"
+            id="inputTelefono"
             name = "telefono"
-            placeholder="Teléfono"
+            placeholder="Telefono"
+            value = "<?php echo $row['telefono'];?>"
           />
           <label for="inputProvincia">Provincia</label>
           <input
